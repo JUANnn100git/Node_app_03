@@ -21,7 +21,7 @@ mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: tru
     if( err ){
         errorDB = err;
         throw err;
-    } 
+    }
     dbOnline = true;
     console.log('\x1b[32m\x1b[36m' + 'Base de datos:\x1b[32m\x1b[93m', 'Online');
 });
@@ -35,7 +35,7 @@ app.get(`${dir}`, (req, res, next) => {
 
     res.status(200).json({
         ok: true,
-        mensaje: 'Petición realizada correctamente AppRoutes',
+        mensaje: 'Petición realizada correctamente AppRoutes con WinSCP Putty',
         env: process.env.NODE_ENV,
         port: process.env.PORT,
         urldb: process.env.URLDB,
@@ -49,4 +49,3 @@ app.get(`${dir}`, (req, res, next) => {
 app.listen(process.env.PORT, () => {
     console.log('\x1b[32m\x1b[36m' + 'Express server en puerto \x1b[32m\x1b[91m'+ process.env.PORT + '\x1b[32m\x1b[36m:\x1b[32m\x1b[93m', 'Online');
 });
-
