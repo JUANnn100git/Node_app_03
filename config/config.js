@@ -13,5 +13,13 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 // Base de Datos
 // =========================================
 
-process.env.URLDB = 'mongodb+srv://adminpro_user:c2pOkF4LadzUkm0R@cluster0-fmnnc.mongodb.net/hospitalDB?retryWrites=true&w=majority';
 
+let urlDB;
+
+if (process.env.NODE_ENV === 'dev') {
+    urlDB = 'mongodb://localhost:27017/hospitalDB';
+} else {
+    urlDB = process.env.MONGO_URI;
+}
+
+process.env.URLDB = urlDB;
